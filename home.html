@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/base.css">
     <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
 
 <body>
@@ -31,25 +31,25 @@
                     </li>
                     <li class="dropdown">
                         <a href="a">Sản phẩm-Giải pháp</a>
-                        <!--<ul class="dropdown-content">
+                        <ul class="dropdown-content">
                             <li><a href="#">Chuyển đổi số y tế</a></li>
                             <li><a href="#">Chữ ký số điện tử</a></li>
                             <li><a href="#">Thẻ việt - một tế quốc gia</a></li>
                             <li><a href="#">Bệnh viện thông minh</a></li>
-                        </ul>-->
+                        </ul>
                     </li>
                     <li>
                         <a href="a">Tuyển dụng</a>
                     </li>
                     <li class="dropdown">
                         <a href="a">Giới thiệu</a>
-                        <!--<ul>
+                        <ul class="dropdown-content">
                             <li><a href="#">Về chúng tôi</a></li>
                             <li><a href="#">Thông điệp của lãnh đạo</a></li>
                             <li><a href="#">Văn hóa & quy tắc ứng xử</a></li>
                             <li><a href="#">Tin tức</a></li>
                             <li><a href="#">Liên hệ</a></li>
-                        </ul>-->
+                        </ul>
                     </li>
                 </ul>
             </div>
@@ -60,18 +60,90 @@
     <!--Section One-->
     <div class="section-one">
         <div class="container">
-            <div class="inner-wrap">
-                <h1 class="inner-title">Thẻ Việt - Một thẻ quốc gia</h1>
-                <p class="inner-desc">Thẻ Việt - Một thẻ quốc gia, là sản phẩm cốt lõi của chương trình phát triển
-                    thương mại điện tử quốc gia của Bộ công thương giai đoạn năm 2014 - 2020 do Thủ tướng Chính phủ ban
-                    hành quyết định số 689 QĐ-TTD ngày 11 tháng 5 năm 2013, nhằm đưa ứng dụng thẻ thông minh tích hợp
-                    thanh toán ứng dụng trong các lĩnh vực, dịch vụ xã hội trọng yếu.</p>
-                <div class="inner-button">
-                    <a href="#" class="button">Đọc thêm</a>
+            <div class="mySlide fade">
+                <img src="./assets/images/bg1.gif" alt="Background Image">
+                <div class="text-box hidden">
+                    <h1 class="inner-title">Thẻ Việt - Một thẻ quốc gia</h1>
+                    <p class="inner-desc">Thẻ Việt - Một thẻ quốc gia, là sản phẩm cốt lõi của chương trình phát triển
+                        thương mại điện tử quốc gia của Bộ công thương giai đoạn năm 2014 - 2020 do Thủ tướng Chính phủ
+                        ban
+                        hành quyết định số 689 QĐ-TTD ngày 11 tháng 5 năm 2013, nhằm đưa ứng dụng thẻ thông minh tích
+                        hợp
+                        thanh toán ứng dụng trong các lĩnh vực, dịch vụ xã hội trọng yếu.</p>
+                    <div class="inner-button">
+                        <a href="#" class="button">Đọc thêm</a>
+                    </div>
                 </div>
             </div>
+            <div class="mySlide fade">
+                <img src="./assets/images/bg2.gif">
+                <div class="text-box hidden">
+                    <h1 class="inner-title t1">Chuyển đổi số Y tế</h1>
+                    <h1 class="inner-title t2">trong cuộc cách mạng 4.0</h1>
+                    <p class="inner-desc">Chuyển đổi số y tế ứng dụng công nghệ thông tin một cách tổng thể và toàn
+                        diện, tác động đổi tích cực toàn bộ hoạt động y tế trong chăm sóc sức khỏe</p>
+                    <div class="inner-button">
+                        <a href="#" class="button">Đọc thêm</a>
+                    </div>
+                </div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
         </div>
+    <script>
+            let timeoutSet = false;
+    
+ 
+    window.onload = function () {
+
+        slideShows(slideIndex);
+    };
+
+
+    let index = 1;
+
+
+    function plusSlides(n) {
+
+        slideShows(index += n);
+    }
+
+
+    function slideShows(n) {
+        let i;
+        let slide = document.getElementsByClassName("mySlide");
+
+        if (n > slide.length) { index = 1 }
+        if (n < 1) { index = slide.length }
+
+        for (i = 0; i < slide.length; i++) {
+            slide[i].style.display = "none";
+        }
+
+        slide[index - 1].style.display = "block";
+
+        toggleTextBox();
+    }
+
+    function toggleTextBox() {
+        var textboxes = document.querySelectorAll('.text-box');
+        textboxes.forEach(function (textbox) {
+            textbox.classList.add('hidden');
+        });
+
+        if (!timeoutSet) {
+            setTimeout(function () {
+                textboxes.forEach(function (textbox) {
+                    textbox.classList.remove('hidden');
+                });
+                timeoutSet = false;
+            }, 1000);
+            timeoutSet = true;
+        }
+    }
+        </script>
     </div>
+
     <!--End Section One-->
 
     <!--Section two-->
@@ -107,7 +179,8 @@
                         </div>
                         <div class="flip-card-back">
                             <h1 class="title">Chuyển đổi số Y tế - Bước tiến lớn của ngành y</h1>
-                            <p class="desc">VietSens hướng đến mục tiêu giữ vững vị trí hàng đầu trong cuộc cách mạng công nghệ số 4.0 nhằm phục vụ cho bệnh nhân và các bệnh viện trong cả nước.</p>
+                            <p class="desc">VietSens hướng đến mục tiêu giữ vững vị trí hàng đầu trong cuộc cách mạng
+                                công nghệ số 4.0 nhằm phục vụ cho bệnh nhân và các bệnh viện trong cả nước.</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +227,8 @@
         <div class="container">
             <div class="inner-wrap">
                 <div class="inner-title">Một số đối tác - khách hàng tiêu biểu</div>
-                <div class="inner-sub-title">Chúng tôi tôn trọng và bảo vệ thông tin mật, mọi quyết định đều phải mang lại lợi ích cho các bên tham gia</div>
+                <div class="inner-sub-title">Chúng tôi tôn trọng và bảo vệ thông tin mật, mọi quyết định đều phải mang
+                    lại lợi ích cho các bên tham gia</div>
                 <div class="slider-container">
                     <div class="slider-wrapper">
                         <div class="item">
@@ -212,7 +286,9 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">y tế</h2>
-                                    <p class="inner-description">Vietsens là đơn vị tiên phong hưởng ứng các chương trình Chuyển đổi số Y tế của cục Bộ Y tế, triển khai hơn 12 Sở Y tế và hơn 100 bệnh viện điển hình</p>
+                                    <p class="inner-description">Vietsens là đơn vị tiên phong hưởng ứng các chương
+                                        trình Chuyển đổi số Y tế của cục Bộ Y tế, triển khai hơn 12 Sở Y tế và hơn 100
+                                        bệnh viện điển hình</p>
                                 </div>
                             </div>
                         </li>
@@ -223,7 +299,9 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">du lịch</h2>
-                                    <p class="inner-description">Vietsens phối hợp cùng Bộ văn hóa du lịch và thể thao, Tổng cục du lịch, Trung tâm thông tin du lịch TITC triển khai chương trình Ứng dụng công nghệ tiên tiến và thương mại điện tử hỗ trợ phát triển du lịch</p>
+                                    <p class="inner-description">Vietsens phối hợp cùng Bộ văn hóa du lịch và thể thao,
+                                        Tổng cục du lịch, Trung tâm thông tin du lịch TITC triển khai chương trình Ứng
+                                        dụng công nghệ tiên tiến và thương mại điện tử hỗ trợ phát triển du lịch</p>
                                 </div>
                             </div>
                         </li>
@@ -234,7 +312,8 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">giao thông</h2>
-                                    <p class="inner-description">Vietsens phối hợp Bộ giao thông vận tải đề xuất các sáng kiến, giải pháp cải thiện hệ thống giao thông công cộng.</p>
+                                    <p class="inner-description">Vietsens phối hợp Bộ giao thông vận tải đề xuất các
+                                        sáng kiến, giải pháp cải thiện hệ thống giao thông công cộng.</p>
                                 </div>
                             </div>
                         </li>
@@ -249,7 +328,11 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">thương mại</h2>
-                                    <p class="inner-description">Hệ thống Trục điện từ kết nối doanh nghiệp ERP Store là giải pháp được Cục thương mại điện tử & Kinh tế số  (Bộ Công thương) triển khai theo chương trình định hướng văn bản, chứng từ điện giúp doanh nghiệp giải quyết tất cả các khó khăn liên quan đến việc quản lý và ký kết văn bản, chứng từ với các đối tác.</p>
+                                    <p class="inner-description">Hệ thống Trục điện từ kết nối doanh nghiệp ERP Store là
+                                        giải pháp được Cục thương mại điện tử & Kinh tế số (Bộ Công thương) triển khai
+                                        theo chương trình định hướng văn bản, chứng từ điện giúp doanh nghiệp giải quyết
+                                        tất cả các khó khăn liên quan đến việc quản lý và ký kết văn bản, chứng từ với
+                                        các đối tác.</p>
                                 </div>
                             </div>
                         </li>
@@ -260,7 +343,9 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">từ thiện</h2>
-                                    <p class="inner-description">Vietsens liên kết với các đơn vị cơ quan có thẩm quyền tham gia vào các chương trình kết nối từ thiện doanh nghiệp chung tay chia sẻ với những hoàn cảnh khó khăn một cách công bằng, minh bạch.</p>
+                                    <p class="inner-description">Vietsens liên kết với các đơn vị cơ quan có thẩm quyền
+                                        tham gia vào các chương trình kết nối từ thiện doanh nghiệp chung tay chia sẻ
+                                        với những hoàn cảnh khó khăn một cách công bằng, minh bạch.</p>
                                 </div>
                             </div>
                         </li>
@@ -271,7 +356,8 @@
                                 </div>
                                 <div class="content">
                                     <h2 class="inner-sub-title">văn hóa & nghệ thuật</h2>
-                                    <p class="inner-description">Vietsens liên kết các cơ quan, đơn vị, cá nhân lan tỏa, truyền thông, bảo tồn những giá trị văn hóa dân tộc</p>
+                                    <p class="inner-description">Vietsens liên kết các cơ quan, đơn vị, cá nhân lan tỏa,
+                                        truyền thông, bảo tồn những giá trị văn hóa dân tộc</p>
                                 </div>
                             </div>
                         </li>
@@ -300,33 +386,38 @@
                         <li>
                             <div class="item">
                                 <img src="/assets/images/2.jpg" alt="">
-                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty CP Linksoft​</a>
+                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty CP
+                                    Linksoft​</a>
                             </div>
                         </li>
                         <li>
                             <div class="item">
                                 <img src="/assets/images/3.jpg" alt="">
-                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty CP Vận hành khai thác Vietsens​</a>
+                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty CP
+                                    Vận hành khai thác Vietsens​</a>
                             </div>
                         </li>
                         <li>
                             <div class="item">
                                 <img src="/assets/images/4.gif" alt="">
-                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty cổ phần Y tế thông minh​</a>
+                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty cổ
+                                    phần Y tế thông minh​</a>
                                 <div class="sub">Founder & CEO</div>
                             </div>
                         </li>
                         <li>
                             <div class="item">
                                 <img src="/assets/images/5.jpg" alt="">
-                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty Cổ phần Dịch vụ Vé Việt​</a>
+                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty Cổ
+                                    phần Dịch vụ Vé Việt​</a>
                                 <div class="sub">Founder & CEO</div>
                             </div>
                         </li>
                         <li>
                             <div class="item">
                                 <img src="/assets/images/6.png" alt="">
-                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty cổ phần Công nghệ OneLink Việt Nam</a>
+                                <a href="https://vietsens.vn/staff/cong-ty-cp-cong-nghe-onelink-viet-nam-3/">Công ty cổ
+                                    phần Công nghệ OneLink Việt Nam</a>
                                 <div class="sub">Founder & CEO</div>
                             </div>
                         </li>
@@ -345,57 +436,180 @@
     </div>
 
     <!--End Section Six-->
+
+    <!--Section Seven-->
+    <div class="section-seven">
+        <div class="slideshow-container">
+
+            <div class="mySlides fade">
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/tong-cuc-du-lich-va-cuc-thuong-mai-dien-tu-va-kinh-te-so-hop-tac-ung-dung-cong-nghe-tien-tien-va-thuong-mai-dien-tu-ho-tro-du-lich/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/lekythoathuan1-1-1024x638-1-358x250.jpg"
+                      alt=""></span>
+                  <span class="item-title">Tổng cục Du lịch và Cục Thương mại điện tử và Kinh tế
+                    số hợp tác ứng dụng công nghệ tiên tiến và thương mại điện tử hỗ trợ du lịch</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/ha-lan-ky-ket-10-du-an-hop-tac-voi-doanh-nghiep-cac-tinh-phia-nam/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/ky-ket-358x250.gif" alt=""></span>
+                  <span class="item-title">Hà Lan ký kết 10 dự án hợp tác với doanh nghiệp các
+                    tỉnh phía Nam</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/phat-hanh-the-viet-mot-the-quoc-gia-dau-tien-danh-cho-khach-du-lich/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/phat_hanh_the_viet2-1-358x250.jpg" alt=""></span>
+                  <span class="item-title">Phát hành “Thẻ Việt – Một thẻ quốc gia” đầu tiên dành
+                    cho khách du lịch</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/ra-mat-truc-dien-tu-ket-noi-doanh-nghiep-erp-store/" class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/ra-mat-truc-dien-tu-ket-noi-doanh-nghiep-3-3-2124380-1-358x250.jpg"
+                      alt=""></span>
+                  <span class="item-title">Ra mắt Trục điện tử kết nối doanh nghiệp ERP
+                    Store</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+            </div>
+        
+            <div class="mySlides fade">
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/tat-yeu-cua-chuyen-doi-so-trong-y-te/" class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/007352205971a92ff060-2048x1365-1-358x250.jpg"
+                      alt="mô tả"></span>
+                  <span class="item-title">Tất yếu của chuyển đổi số trong y tế</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/phat-the-kham-benh-thong-minh-mien-phi-tai-benh-vien-ba-ria/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/mau_the_ba_ria-01-1-358x250.jpg" alt="mô tả"></span>
+                  <span class="item-title">Phát thẻ khám bệnh thông minh miễn phí tại Bệnh viện Bà Rịa</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/cac-dong-chi-lanh-dao-tinh-lam-viec-voi-tap-doan-cong-nghe-vietsens/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/fff-1-358x250.gif" alt="mô tả"></span>
+                  <span class="item-title">Các đồng chí lãnh đạo tỉnh làm việc với Tập đoàn công nghệ Vietsens</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+              <div class="item">
+                <a href="https://vietsens.vn/portfolio/lanh-dao-bo-y-te-tham-gian-hang-tap-doan-cong-nghe-vietsens-tai-hoi-nghi-chuyen-doi-so-y-te-quoc-gia/"
+                  class="item">
+                  <span class="item-image"><img width="358" height="250"
+                      src="https://vietsens.vn/wp-content/uploads/2021/07/IMG_7233-2-358x250.jpg" alt="mô tả"></span>
+                  <span class="item-title">Phát hành miễn phí 1.000.000 thẻ khám bệnh thông minh cho người dân trên địa bàn Ninh
+                    Thuận</span>
+                  <span class="item-category">Báo chí nói về chúng tôi</span>
+                </a>
+              </div>
+            </div>
+        
+          </div>
+          <br>
+        
+          <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+        
+          <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+        
+            function currentSlide(n) {
+              showSlides(slideIndex = n);
+            }
+        
+            function showSlides(n) {
+              let i;
+              let slides = document.getElementsByClassName("mySlides");
+              let dots = document.getElementsByClassName("dot");
+              if (n > slides.length) { slideIndex = 1 }
+              if (n < 1) { slideIndex = slides.length }
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex - 1].style.display = "block";
+              dots[slideIndex - 1].className += " active";
+            }
+          </script>
+    </div>
+    <!--End Section Seven-->
     <!--Footer-->
     <div class="footer">
-            <div class="container">
-                <div class="inner-wrap-1">
-                    <div class="inner-logo">
-                        <a href="a">
-                            <img src="/assets/images/logo.png" alt="logo">
-                        </a>
-                    </div>
-                    <div class="add-1">
-                        <ul>
-                            <li>Văn phòng Hà Nội</li>
-                            <li>Số 5A, 164 Khuất Duy Tiến, Thanh Xuân,
-                                Hà Nội</li>
-                            <li>Email: info@vietsens.vn</li>
-                            <li>Hotline: 024 625 80000</li>
-                        </ul>
-                    </div>
-                    <div class="add-2">
-                        <ul>
-                            <li>Văn phòng TP.HCM</li>
-                            <li>2/13 Hồng Hà, Phường 2, Quận Tân Bình, TP. HCM</li>
-                        </ul>
-                    </div>
+        <div class="container">
+            <div class="inner-wrap-1">
+                <div class="inner-logo">
+                    <a href="a">
+                        <img src="/assets/images/logo.png" alt="logo">
+                    </a>
                 </div>
-            </div>
-            <!-- /// -->
-            <div class="inner-wrap-2">
-                <p class="inner-last">© 2024 @ Tập đoàn công nghệ Vietsen</p>
-                <div class="inner-social">
+                <div class="add-1">
                     <ul>
-                        <li>
-                            <a href="https://www.facebook.com/profile.php?id=100068340949681" target="_blank"><i
-                                    class="fa-brands fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://www.youtube.com/channel/UC04yckNIaC4WkLydeAyMesg" target="_blank"><i
-                                    class="fa-brands fa-youtube"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://zalo.me/2701348514405534035" target="_blank"><i
-                                    class="fa-brands fa-skype"></i></a>
-                        </li>
+                        <li>Văn phòng Hà Nội</li>
+                        <li>Số 5A, 164 Khuất Duy Tiến, Thanh Xuân,
+                            Hà Nội</li>
+                        <li>Email: info@vietsens.vn</li>
+                        <li>Hotline: 024 625 80000</li>
+                    </ul>
+                </div>
+                <div class="add-2">
+                    <ul>
+                        <li>Văn phòng TP.HCM</li>
+                        <li>2/13 Hồng Hà, Phường 2, Quận Tân Bình, TP. HCM</li>
                     </ul>
                 </div>
             </div>
         </div>
+        <!-- /// -->
+        <div class="inner-wrap-2">
+            <p class="inner-last">© 2024 @ Tập đoàn công nghệ Vietsen</p>
+            <div class="inner-social">
+                <ul>
+                    <li>
+                        <a href="https://www.facebook.com/profile.php?id=100068340949681" target="_blank"><i
+                                class="fa-brands fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UC04yckNIaC4WkLydeAyMesg" target="_blank"><i
+                                class="fa-brands fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://zalo.me/2701348514405534035" target="_blank"><i
+                                class="fa-brands fa-skype"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="container-2">
-       
+
     </div>
 
     <!--End Footer-->
